@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: account
+  profiles:
+    active: @profileActive@
+  cloud:
+    nacos:
+      server-addr: @custom.nacos.server-addr@
+      username: @custom.nacos.username@
+      password: @custom.nacos.password@
+      config:
+        file-extension: yml
+        # group: DEFAULT_GROUP
+        namespace: ${spring.profiles.active}
+        # 公共的配置文件
+        shared-configs:
+          - data-id: common-@custom.project.name@
+            group: DEFAULT_GROUP
+            refresh: true
+      discovery:
+        namespace: ${spring.profiles.active}

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: order
+  profiles:
+    active: test
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      config:
+        file-extension: yml
+        # group: DEFAULT_GROUP
+        namespace: ${spring.profiles.active}
+        # 公共的配置文件
+        shared-configs:
+          - data-id: common-speed-mall
+            group: DEFAULT_GROUP
+            refresh: true
+      discovery:
+        namespace: ${spring.profiles.active}
