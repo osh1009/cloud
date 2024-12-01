@@ -1,0 +1,7 @@
+server:
+  port: 6001
+
+# 配置Gateway日志等级，输出转发细节信息
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

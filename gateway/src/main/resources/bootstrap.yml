@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: @profileActive@
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 解析微服务名称为主机名和端口，实现动态路由
+          enabled: true
+          # 服务名使用小写
+          lower-case-service-id: true
+    nacos:
+      server-addr: @custom.nacos.server-addr@
+      username: @custom.nacos.username@
+      password: @custom.nacos.password@
+      discovery:
+        namespace: ${spring.profiles.active}
+
+
